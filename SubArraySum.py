@@ -1,3 +1,4 @@
+# Day 1 - 12th August 2020
 # This question was solved on leetcode: Question Number - 523
 
 # The Question:
