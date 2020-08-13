@@ -9,6 +9,8 @@
 # Runtime - 976 ms - Faster than 68.40%
 # Memory - 17.4 MB - Less than 34.69%
 
+# Approach - Two Pointer Approach -> Take a left pointer and a right pointer. Incrementing the left pointer increases total. Decrementing right pointer decreases total.
+
 # Important Takeaway - using 'x in list' is very time consuming... makes the difference between time limit exceeded and better than 60% of responses.
 
 
