@@ -1,0 +1,42 @@
+# Day 5 - 16th August 2020
+# This question was solved on leetcode: Question Number - 19
+
+# The Question:
+
+# Given a linked list, remove the n-th node from the end of list and return its head.
+
+
+# Runtime - 24 ms - Faster than 98.55%
+# Memory - 13.8 MB - Less than 69.74%
+
+# Takeaway: Give the 'simple' solution in your head a shot. May actually be the right answer. You should try the solution that comes to your head first, instead of trying to optimize it before even coding it.
+
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        
+        ListForm = []
+        
+        node = head
+        listLength = 0
+        
+        while node != None:
+            listLength +=1
+            ListForm.append(node)
+            node = node.next
+            
+        
+        removeIndex = listLength-n
+        
+        if listLength>removeIndex+1 and removeIndex-1>=0:
+            ListForm[removeIndex-1].next = ListForm[removeIndex+1]
+            ListForm.pop(removeIndex)
+        elif removeIndex==0 and listLength==1:
+            return ListNode(val='')
+        elif removeIndex==0 and listLength>1:
+            return ListForm[1]
+        else:
+            ListForm[removeIndex-1].next = None
+            ListForm.pop(removeIndex)
+        
+        
+        return ListForm[0]
