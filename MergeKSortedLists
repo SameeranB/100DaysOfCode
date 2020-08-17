@@ -1,0 +1,33 @@
+# Day 6 - 16th August 2020
+# This question was solved on leetcode: Question Number - 23
+
+# The Question:
+
+# Given an array of linked-lists lists, each linked list is sorted in ascending order. Merge all the linked-lists into one sort linked-list and return it.
+
+
+# Runtime - 88 ms - Faster than 99.64%
+# Memory - 17.5 MB - Less than 80.24%
+
+class Solution:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        outputList = []
+        
+        for i in lists:
+            node = i
+            while node != None:
+                outputList.append(node)
+                node = node.next
+                
+        
+        outputList.sort(key=lambda linkedList: linkedList.val)
+        
+        for i in range(len(outputList)-1):
+            outputList[i].next = outputList[i+1]
+        
+        if len(outputList) == 0:
+            return ListNode(val='')
+            
+        outputList[len(outputList)-1].next = None
+        
+        return outputList[0]
